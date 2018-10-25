@@ -162,16 +162,16 @@ public class MainActivity extends AppCompatActivity {
                     double voteAverage = currentArrayObject.getDouble("vote_average");
                     String backdrop_path = currentArrayObject.getString("backdrop_path");
                     backdrop_path = urlBackground + backdrop_path;
-                    if (moviePosterPath == null || moviePosterPath == "" || moviePosterPath.equalsIgnoreCase("null"))
+                    if (moviePosterPath == null || moviePosterPath .equals("") || moviePosterPath.equalsIgnoreCase("null"))
                         continue;
                     moviePosterPath = urlImage + moviePosterPath;
                     // Bitmap posterIMG= Picasso.with(context).load(moviePosterPath).get();
                     // Bitmap backdropIMG= Picasso.with(context).load(backdrop_path).get();
-                    if (title == null || title == "")
+                    if (title == null || title.equals(""))
                         title = "";
-                    if (releaseDate == null || releaseDate == "")
+                    if (releaseDate == null || releaseDate.equals(""))
                         releaseDate = "";
-                    if (movieOverview == null || movieOverview == "")
+                    if (movieOverview == null || movieOverview.equals(""))
                         movieOverview = "";
                     MovieEntry movieEntry = new MovieEntry(movieID, title, moviePosterPath, movieOverview, releaseDate, voteAverage, backdrop_path, null, null);
                     moviesEntries.add(movieEntry);
@@ -179,8 +179,6 @@ public class MainActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
             } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
                 e.printStackTrace();
             }
             return moviesEntries;
@@ -193,12 +191,9 @@ public class MainActivity extends AppCompatActivity {
             entries=movieEntries;
             if (movieEntries.size() == 0) {
                 DisplayErrorFetchingData();
-                return;
             }
             else
                 DisplayData();
-
-
         }
     }
 }

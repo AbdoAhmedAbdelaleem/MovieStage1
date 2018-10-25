@@ -22,8 +22,7 @@ public class MovieDeatails extends AppCompatActivity {
         TextView VoteAverageTextView= (TextView) findViewById(R.id.VoteAverage);
         Intent intent=getIntent();
         if(intent.hasExtra(DATA_EXTRA_KEY)) {
-            MovieEntry object = (MovieEntry) intent.getParcelableExtra(DATA_EXTRA_KEY);
-            MovieEntry movieEntry = object;
+            MovieEntry movieEntry = intent.getParcelableExtra(DATA_EXTRA_KEY);
             if (movieEntry != null) {
                 OvervieTextView.setText(movieEntry.getMovieOverview());
                 releaseDateTextview.setText(movieEntry.getMovieRelease_date());
@@ -35,5 +34,4 @@ public class MovieDeatails extends AppCompatActivity {
             }
         }
     }
-
 }
